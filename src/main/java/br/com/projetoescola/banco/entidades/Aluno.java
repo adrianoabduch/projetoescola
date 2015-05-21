@@ -1,13 +1,13 @@
 package br.com.projetoescola.banco.entidades;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Aluno extends BaseEntidadeEscola {
-	
+
+	@OneToOne
 	@JoinColumn(name = "usuarioid")
 	private Usuario usuario;
 
@@ -36,4 +36,13 @@ public class Aluno extends BaseEntidadeEscola {
 	public String getNomeCompleto() {
 		return primeiroNome + " " + sobrenome;
 	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
 }

@@ -10,7 +10,10 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 
 		<!-- entidade mapeada -->
+		<class>br.com.projetoescola.banco.entidades.Contrato</class>
+ 		<class>br.com.projetoescola.banco.entidades.Escola</class>
  		<class>br.com.projetoescola.banco.entidades.Usuario</class>
+ 		<class>br.com.projetoescola.banco.entidades.Aluno</class>
 
  		<properties>
 		<!-- dados da conexao -->

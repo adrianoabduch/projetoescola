@@ -22,6 +22,7 @@
 		<mapping class="br.com.projetoescola.banco.entidades.Contrato" />
 		<mapping class="br.com.projetoescola.banco.entidades.Escola" />
 		<mapping class="br.com.projetoescola.banco.entidades.Usuario" />
+		<mapping class="br.com.projetoescola.banco.entidades.Aluno" />
 		
 		
 		

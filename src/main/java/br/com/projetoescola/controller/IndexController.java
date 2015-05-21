@@ -8,7 +8,7 @@ import br.com.caelum.stella.boleto.Endereco;
 import br.com.caelum.stella.boleto.Pagador;
 import br.com.caelum.stella.boleto.bancos.Bradesco;
 import br.com.caelum.stella.boleto.transformer.GeradorDeBoleto;
-import br.com.caelum.vraptor.Path;
+import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Resource;
 import br.com.projetoescola.banco.dao.UsuarioDAOImpl;
 
@@ -23,11 +23,11 @@ public class IndexController {
 		this.usuarioDAO = usuarioDAO;
 	}
 	
-	@Path("/")
-	public String index() {
+//	@Get("/{id}")
+	public String teste() {
+		Long id = 1L;
 		
-		
-		String y = usuarioDAO.buscaPorId(4L).getEmail();
+		String y = usuarioDAO.buscaPorId(id).getEmail();
 		if(y != null)
 			return y;
 		

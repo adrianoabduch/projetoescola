@@ -14,8 +14,8 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 public class BaseEntidadeEscola extends BaseEntidade {
 
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="empresaid", nullable=false, updatable = false)
+	@ManyToOne
+	@JoinColumn(name="escolaid")
 	private Escola escola;
 
 	public Escola getEscola() {

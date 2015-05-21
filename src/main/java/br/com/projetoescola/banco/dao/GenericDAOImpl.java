@@ -38,11 +38,11 @@ public class GenericDAOImpl<T extends BaseEntidade> implements GenericDAO<T> {
 		return session;
 	}
 	
-	@SuppressWarnings("unchecked")
 	public T buscaPorId(Long id) {
 		if(id == null)
 			return null;
 		
+		@SuppressWarnings("unchecked")
 		T entidade = (T) session.get(getPersistentClass(), id);
 
 		return entidade;
@@ -50,9 +50,9 @@ public class GenericDAOImpl<T extends BaseEntidade> implements GenericDAO<T> {
 	
 	@Transactional
 	public T salvar(T entidade) {
-//		Transaction tx = session.beginTransaction();
+		Transaction tx = session.beginTransaction();
 		session.saveOrUpdate(entidade);
-//		tx.commit();
+		tx.commit();
 		
 		return entidade;
 	}
