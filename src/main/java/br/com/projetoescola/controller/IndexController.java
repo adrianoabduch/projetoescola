@@ -8,7 +8,6 @@ import br.com.caelum.stella.boleto.Endereco;
 import br.com.caelum.stella.boleto.Pagador;
 import br.com.caelum.stella.boleto.bancos.Bradesco;
 import br.com.caelum.stella.boleto.transformer.GeradorDeBoleto;
-import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Resource;
 import br.com.projetoescola.banco.dao.UsuarioDAOImpl;
 
