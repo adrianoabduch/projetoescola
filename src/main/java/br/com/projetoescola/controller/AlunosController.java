@@ -18,5 +18,9 @@ public class AlunosController {
 	public List<Aluno> lista() {
 		return alunoDAO.buscaTodos();
 	}
+	
+	public String nome() {
+		return "José";
+	}
 
 }

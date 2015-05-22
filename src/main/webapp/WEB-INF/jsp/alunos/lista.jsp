@@ -11,6 +11,10 @@
 	<c:forEach items="${alunoList}" var="aluno">
 		${aluno.nomeCompleto}<br />
 	</c:forEach>
+	
+	${string}
+	
+	${nome}
 
 </body>
 </html>
