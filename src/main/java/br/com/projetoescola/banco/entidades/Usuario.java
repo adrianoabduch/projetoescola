@@ -2,6 +2,8 @@ package br.com.projetoescola.banco.entidades;
 
 import javax.persistence.Entity;
 
+import br.com.projetoescola.tipo.TipoPerfil;
+
 @Entity
 public class Usuario extends BaseEntidadeEscola {
 
@@ -9,17 +11,11 @@ public class Usuario extends BaseEntidadeEscola {
 	
 	private String senha;
 	
-	private boolean administrativo = false;
+	private TipoPerfil perfil;
 	
-	private boolean secretaria = false;
+	private Integer tentativaserradas;
 	
-	private boolean aluno = false;
-	
-	private boolean docente = false;
-	
-	private int tentativaserradas;
-	
-	private boolean bloqueado = false;
+	private Boolean bloqueado;
 
 	public String getEmail() {
 		return email;
@@ -37,52 +33,28 @@ public class Usuario extends BaseEntidadeEscola {
 		this.senha = senha;
 	}
 
-	public boolean isAdministrativo() {
-		return administrativo;
+	public TipoPerfil getPerfil() {
+		return perfil;
 	}
 
-	public void setAdministrativo(boolean administrativo) {
-		this.administrativo = administrativo;
+	public void setPerfil(TipoPerfil perfil) {
+		this.perfil = perfil;
 	}
 
-	public boolean isSecretaria() {
-		return secretaria;
-	}
-
-	public void setSecretaria(boolean secretaria) {
-		this.secretaria = secretaria;
-	}
-
-	public boolean isAluno() {
-		return aluno;
-	}
-
-	public void setAluno(boolean aluno) {
-		this.aluno = aluno;
-	}
-
-	public boolean isDocente() {
-		return docente;
-	}
-
-	public void setDocente(boolean docente) {
-		this.docente = docente;
-	}
-
-	public int getTentativaserradas() {
+	public Integer getTentativaserradas() {
 		return tentativaserradas;
 	}
 
-	public void setTentativaserradas(int tentativaserradas) {
+	public void setTentativaserradas(Integer tentativaserradas) {
 		this.tentativaserradas = tentativaserradas;
 	}
 
-	public boolean isBloqueado() {
+	public Boolean getBloqueado() {
 		return bloqueado;
 	}
 
-	public void setBloqueado(boolean bloqueado) {
+	public void setBloqueado(Boolean bloqueado) {
 		this.bloqueado = bloqueado;
 	}
-
+	
 }

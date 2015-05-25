@@ -4,5 +4,6 @@ import br.com.projetoescola.banco.entidades.Usuario;
 
 public interface UsuarioDAO extends GenericDAO<Usuario> {
 
+	Usuario buscaUsuarioPorEmailESenha(Usuario usuario);
 	
 }

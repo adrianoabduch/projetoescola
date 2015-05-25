@@ -3,9 +3,8 @@ package br.com.projetoescola.banco.dao;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
-import org.hibernate.transform.AliasToBeanResultTransformer;
 
 import br.com.caelum.vraptor.ioc.Component;
 import br.com.projetoescola.banco.entidades.Usuario;
@@ -22,6 +21,14 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario> implements UsuarioDA
 		Criteria c = getSession().createCriteria(Usuario.class);
 		
 		return c.list();
+	}
+	
+	public Usuario buscaUsuarioPorEmailESenha(Usuario usuario) {
+		Query query = getSession().createQuery("from Usuario where email = :email and senha = :senha") ;
+			query.setParameter("email", usuario.getEmail()) ;
+			query.setParameter("senha", usuario.getSenha()) ;
+		
+		return (Usuario) query.uniqueResult() ;
 	}
 	
 	

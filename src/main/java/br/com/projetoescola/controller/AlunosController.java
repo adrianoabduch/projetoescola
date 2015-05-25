@@ -9,6 +9,8 @@ import br.com.projetoescola.banco.entidades.Aluno;
 @Resource
 public class AlunosController {
 	
+	private String nome;
+	
 	private AlunoDAO alunoDAO;
 
 	public AlunosController(AlunoDAO alunoDAO) {
@@ -19,8 +21,13 @@ public class AlunosController {
 		return alunoDAO.buscaTodos();
 	}
 	
+
 	public String nome() {
-		return "José";
+		nome = "José";
+		
+		System.out.println(nome);
+		return nome;
 	}
+	
 
 }
