@@ -7,23 +7,28 @@ import javax.transaction.Transactional;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
-import br.com.projetoescola.banco.entidades.BaseEntidade;
+import br.com.projetoescola.banco.entidades.BaseEntidadeEscola;
+import br.com.projetoescola.seguranca.UsuarioLogado;
 
 /**
- * DAO Genérico com os métodos básicos de um DAO. Todo DAO de uma entidade não filha de escola do sistema deve estender este DAO.
+ * DAO Genérico com os métodos básicos de um DAO. Todo DAO de uma entidade filha de escola do sistema deve estender este DAO.
  * @author Adriano
  *
  * @param <T>
  */
-public class GenericDAOImpl<T extends BaseEntidade> implements GenericDAO<T> {
+public class GenericEntidadeEscolaDAOImpl<T extends BaseEntidadeEscola> implements GenericDAO<T> {
 
 	private final Session session;
 	
 	private Class<T> persistentClass;
+
+	private UsuarioLogado usuarioLogado;
 	
-	public GenericDAOImpl(Session session) {
+	public GenericEntidadeEscolaDAOImpl(Session session, UsuarioLogado usuarioLogado) {
 		this.session = session;
+		this.usuarioLogado = usuarioLogado;
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -56,7 +61,6 @@ public class GenericDAOImpl<T extends BaseEntidade> implements GenericDAO<T> {
 	@Transactional
 	public T salvar(T entidade) {
 		session.saveOrUpdate(entidade);
-		
 		return entidade;
 	}
 	
@@ -72,9 +76,16 @@ public class GenericDAOImpl<T extends BaseEntidade> implements GenericDAO<T> {
 		
 		return entidade;
 	}
-	
+
+	/**
+	 * Devolve uma criteria já filtrando com o ID da escola do usuário logado.
+	 * @return Criteria
+	 */
 	public Criteria createCriteria() {
 		Criteria c = getSession().createCriteria(getPersistentClass());
+		c.createAlias("escola", "escola");
+		c.add(Restrictions.eq("escola.id", usuarioLogado.getUsuario().getEscola().getId()));
+		
 		return c;
 	}
 	

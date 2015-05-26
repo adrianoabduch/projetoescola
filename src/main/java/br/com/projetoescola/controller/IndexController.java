@@ -22,6 +22,9 @@ public class IndexController {
 		this.usuarioDAO = usuarioDAO;
 	}
 	
+	public void home() {
+	}
+	
 //	@Get("/{id}")
 	public String teste() {
 		Long id = 1L;

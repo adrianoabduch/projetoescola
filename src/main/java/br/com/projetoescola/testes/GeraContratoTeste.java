@@ -28,8 +28,8 @@ public class GeraContratoTeste {
 		ContratoDAO contratoDAO = new ContratoDAOImpl(s);
 		EscolaDAO escolaDAO = new EscolaDAOImpl(s);
 		UsuarioDAO usuarioDAO = new UsuarioDAOImpl(s);
-		ColaboradorDAO colaboradorDAO = new ColaboradorDAOImpl(s);
-		AlunoDAO alunoDAO = new AlunoDAOImpl(s);
+		ColaboradorDAO colaboradorDAO = new ColaboradorDAOImpl(s, null);
+		AlunoDAO alunoDAO = new AlunoDAOImpl(s, null);
 		
 		//Cria o contrato
 		Contrato c = new Contrato();
@@ -61,25 +61,25 @@ public class GeraContratoTeste {
 		
 		
 //		Salva o contrato
-		contratoDAO.salvar(c);
+		contratoDAO._salvar(c);
 		
 //		Adiciona o contrato na escola e salva a escola
 		e.setContrato(c);
-		escolaDAO.salvar(e);
+		escolaDAO._salvar(e);
 		
 //		Adiciona a escola no usuário administrativo e salva o usuário
 		u.setEscola(e);
-		usuarioDAO.salvar(u);
+		usuarioDAO._salvar(u);
 		
 //		Adiciona o usuário administrativo e a escola
 //		no colaborador que contratou e salva o colaborador 
 		colaborador.setEscola(e);
 		colaborador.setUsuario(u);
-		colaboradorDAO.salvar(colaborador);
+		colaboradorDAO._salvar(colaborador);
 		
 //		Adiciona a escola no aluno e salva o aluno
 		aluno.setEscola(e);
-		alunoDAO.salvar(aluno);
+		alunoDAO._salvar(aluno);
 	}
 	
 }

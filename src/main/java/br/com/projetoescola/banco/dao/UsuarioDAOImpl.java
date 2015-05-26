@@ -1,8 +1,5 @@
 package br.com.projetoescola.banco.dao;
 
-import java.util.List;
-
-import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
@@ -16,13 +13,6 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario> implements UsuarioDA
 		super(session);
 	}
 	
-	@SuppressWarnings("unchecked")
-	public List<Usuario> findAll() {
-		Criteria c = getSession().createCriteria(Usuario.class);
-		
-		return c.list();
-	}
-	
 	public Usuario buscaUsuarioPorEmailESenha(Usuario usuario) {
 		Query query = getSession().createQuery("from Usuario where email = :email and senha = :senha") ;
 			query.setParameter("email", usuario.getEmail()) ;
@@ -30,7 +20,5 @@ public class UsuarioDAOImpl extends GenericDAOImpl<Usuario> implements UsuarioDA
 		
 		return (Usuario) query.uniqueResult() ;
 	}
-	
-	
 	
 }

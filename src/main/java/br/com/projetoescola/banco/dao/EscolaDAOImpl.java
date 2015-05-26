@@ -16,13 +16,5 @@ public class EscolaDAOImpl extends GenericDAOImpl<Escola> implements EscolaDAO {
 		super(session);
 	}
 	
-	@SuppressWarnings("unchecked")
-	public List<Escola> findAll() {
-		Criteria c = getSession().createCriteria(Usuario.class);
-		
-		return c.list();
-	}
-	
-	
 	
 }

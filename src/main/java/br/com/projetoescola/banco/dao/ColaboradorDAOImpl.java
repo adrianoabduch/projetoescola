@@ -1,27 +1,26 @@
 package br.com.projetoescola.banco.dao;
 
-import java.util.List;
-
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
 import br.com.caelum.vraptor.ioc.Component;
 import br.com.projetoescola.banco.entidades.Colaborador;
+import br.com.projetoescola.seguranca.UsuarioLogado;
 
 @Component
-public class ColaboradorDAOImpl extends GenericDAOImpl<Colaborador> implements ColaboradorDAO {
+public class ColaboradorDAOImpl extends GenericEntidadeEscolaDAOImpl<Colaborador> implements ColaboradorDAO {
 
-	public ColaboradorDAOImpl(Session session) {
-		super(session);
+	public ColaboradorDAOImpl(Session session, UsuarioLogado usuarioLogado) {
+		super(session, usuarioLogado);
 	}
 	
-	@SuppressWarnings("unchecked")
-	public List<Colaborador> buscaTodos() {
-		Criteria c = getSession().createCriteria(Colaborador.class);
+	public Colaborador buscaPorUsuarioId(Long usuarioId) {
+		Criteria criteria = createCriteria();
+		criteria.createAlias("usuario", "usuario");
+		Restrictions.eq("usuario.id", usuarioId);
 		
-		return c.list();
+		return (Colaborador) criteria.uniqueResult();
 	}
-	
-	
 	
 }

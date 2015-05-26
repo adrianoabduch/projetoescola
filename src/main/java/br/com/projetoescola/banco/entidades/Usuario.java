@@ -1,6 +1,8 @@
 package br.com.projetoescola.banco.entidades;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 
 import br.com.projetoescola.tipo.TipoPerfil;
 
@@ -10,7 +12,8 @@ public class Usuario extends BaseEntidadeEscola {
 	private String email;
 	
 	private String senha;
-	
+
+	@Enumerated(EnumType.ORDINAL)
 	private TipoPerfil perfil;
 	
 	private Integer tentativaserradas;

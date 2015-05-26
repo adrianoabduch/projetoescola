@@ -3,8 +3,13 @@ package br.com.projetoescola.tipo;
 public enum TipoPerfil implements Tipo {
 	ALUNO,
 	DOCENTE,
-	SECRETARIA,
-	ADMINISTADOR;
+	ADMINISTADOR,
+	SECRETARIA_TODOS,
+	SECRETARIA_CADASTROS,
+	SECRETARIA_BIBLIOTECA,
+	SECRETARIA_FINANCEIRO,
+	SECRETARIA_ALMOXARIFADO,
+	SECRETARIA_RELATORIOS;
 	
 	public String getDescricao() {
 		return TipoUtils.getDescricao(this);

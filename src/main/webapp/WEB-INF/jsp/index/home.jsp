@@ -7,13 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>Login</h2>
+	Início, usuário logado: ${usuarioLogado.nomeCompleto}
 	
-	<form action="<c:url value="/autentica" />" method="POST">
-		Login: <input type="text" name="usuario.email" /> <br />
-		Senha: <input type="password" name="usuario.senha" /> <br />
-		<input type="submit" value="Entrar" />
-	</form>
 
 </body>
 </html>

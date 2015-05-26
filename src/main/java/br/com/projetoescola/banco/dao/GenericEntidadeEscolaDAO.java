@@ -1,5 +1,7 @@
 package br.com.projetoescola.banco.dao;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 
@@ -10,10 +12,11 @@ import org.hibernate.Session;
  *
  * @param <T>
  */
-public interface GenericDAO<T> {
+public interface GenericEntidadeEscolaDAO<T> {
 
 	public T buscaPorId(Long id);
 	
+	@SuppressWarnings("rawtypes")
 	public Class getPersistentClass();
 
 	public Session getSession();
@@ -23,14 +26,20 @@ public interface GenericDAO<T> {
 	 * com o vraptor (controllers, components etc)
 	 */
 	public T salvar(T entidade);
-
+	
 	/**
 	 * Salva com transação criada manualmente. Deve ser usado para testes e afins.
 	 * @param entidade
 	 * @return
 	 */
 	public T _salvar(T entidade);
-
+	
+	/**
+	 * Devolve uma criteria já filtrando com o ID da escola do usuário logado.
+	 * @return Criteria
+	 */
 	public Criteria createCriteria();
+	
+	
 	
 }

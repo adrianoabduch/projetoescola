@@ -1,11 +1,9 @@
 package br.com.projetoescola.banco.dao;
 
-import java.util.List;
-
 import br.com.projetoescola.banco.entidades.Colaborador;
 
-public interface ColaboradorDAO extends GenericDAO<Colaborador> {
+public interface ColaboradorDAO extends GenericEntidadeEscolaDAO<Colaborador> {
 	
-	public List<Colaborador> buscaTodos();
+	public Colaborador buscaPorUsuarioId(Long usuarioId);
 	
 }
