@@ -84,13 +84,20 @@
         <version>4.0.1</version>
     </dependency>
 	
+	<!-- POSTGRES -->
+	<dependency>
+		<groupId>org.postgresql</groupId>
+		<artifactId>postgresql</artifactId>
+		<version>9.4-1201-jdbc41</version>
+	</dependency>
 	
-	<!-- MYSQL -->
+	
+	<!-- MYSQL
 	<dependency>
 		<groupId>mysql</groupId>
 		<artifactId>mysql-connector-java</artifactId>
 		<version>5.1.17</version>
-	</dependency>
+	</dependency> -->
 		
   </dependencies>
 </project>
